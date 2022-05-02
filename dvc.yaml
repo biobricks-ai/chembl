@@ -1,0 +1,7 @@
+stages:
+  download_sqlite:
+    cmd: Rscript R/build.R
+    deps:
+      - R/build.R
+    outs:
+      - data/chembl_30.db

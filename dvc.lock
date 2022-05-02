@@ -1,0 +1,12 @@
+schema: '2.0'
+stages:
+  download_sqlite:
+    cmd: Rscript R/build.R
+    deps:
+    - path: R/build.R
+      md5: d790344a7e6e99ee2104a4de786eed10
+      size: 923
+    outs:
+    - path: data/chembl_30.db
+      md5: 755388412e0c22a93cff2314bbdc5f7a
+      size: 22373666816
