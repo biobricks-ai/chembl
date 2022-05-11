@@ -1,6 +1,4 @@
-library(kiln)
 library(fs)
-library(RCurl)
 library(rvest)
 library(purrr)
 cache_dir = "cache"
@@ -15,7 +13,7 @@ options(timeout=1800)
 host <- "ftp://ftp.ebi.ac.uk"
 dir <- "/pub/databases/chembl/ChEMBLdb/latest"
 file <- "chembl_30_sqlite.tar.gz"
-download_file(dest_dir="cache",url=file.path(host,dir,file))
+download.file(destfile=file.path(cache_dir,file),url=file.path(host,dir,file))
 # uncompress it
 sqlite_tar_gz_file <- list.files(cache_dir) |> pluck(1)
 sqlite_tar_gz_path <- file.path(cache_dir,file)

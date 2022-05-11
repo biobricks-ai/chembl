@@ -4,8 +4,8 @@ stages:
     cmd: Rscript R/build.R
     deps:
     - path: R/build.R
-      md5: d790344a7e6e99ee2104a4de786eed10
-      size: 923
+      md5: 420c3bc6557c1ab8b4e398c588df873a
+      size: 912
     outs:
     - path: data/chembl_30.db
       md5: 755388412e0c22a93cff2314bbdc5f7a
