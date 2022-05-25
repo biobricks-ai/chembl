@@ -6,7 +6,7 @@ dependencies:
   - name: chembl
     url: https://www.ebi.ac.uk/chembl/
 ---
-<a href="https://github.com/biobricks-ai/chembl/actions"><img src="https://github.com/biobricks-ai/chembl/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
+<a href="https://github.com/biobricks-ai/chembl/actions"><img src="https://github.com/biobricks-ai/chembl/actions/workflows/bricktools-check.yaml/badge.svg?branch=master"/></a>
 
 # Description
 
