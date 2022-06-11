@@ -10,3 +10,17 @@ stages:
     - path: data/chembl_30.db
       md5: 755388412e0c22a93cff2314bbdc5f7a
       size: 22373666816
+  build_parquet:
+    cmd: Rscript R/build_parquet.R
+    deps:
+    - path: R/build_parquet.R
+      md5: 20c7cfd5d5e0539deefacc7a1d045998
+      size: 466
+    - path: data/chembl_30.db
+      md5: 755388412e0c22a93cff2314bbdc5f7a
+      size: 22373666816
+    outs:
+    - path: data/parquet
+      md5: 297e3b999350ecc23ce39cd83a6b2bb0.dir
+      size: 2429176712
+      nfiles: 81
