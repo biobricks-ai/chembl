@@ -1,14 +1,11 @@
 stages:
+  invalidate:
+    cmd: Rscript stages/0_invalidate.R
+    outs:
+      - staging/checksums.txt
   download_sqlite:
-    cmd: Rscript R/build.R
+    cmd: Rscript stages/1_build.R
     deps:
-      - R/build.R
+      - staging/checksums.txt
     outs:
-      - data/chembl_30.db
-  build_parquet:
-    cmd: Rscript R/build_parquet.R
-    deps: 
-      - R/build_parquet.R
-      - data/chembl_30.db
-    outs:
-      - data/parquet
+      - brick/

@@ -1,15 +1,16 @@
 schema: '2.0'
 stages:
   download_sqlite:
-    cmd: Rscript R/build.R
+    cmd: Rscript stages/1_build.R
     deps:
-    - path: R/build.R
-      md5: 420c3bc6557c1ab8b4e398c588df873a
-      size: 912
+    - path: staging/checksums.txt
+      md5: 5cc06d32fa75420849b207a648072994
+      size: 790
     outs:
-    - path: data/chembl_30.db
-      md5: 755388412e0c22a93cff2314bbdc5f7a
-      size: 22373666816
+    - path: brick/
+      md5: a782c8a6650e9022c754f793f1b1a464.dir
+      size: 2601302054
+      nfiles: 81
   build_parquet:
     cmd: Rscript R/build_parquet.R
     deps:
@@ -24,3 +25,9 @@ stages:
       md5: 297e3b999350ecc23ce39cd83a6b2bb0.dir
       size: 2429176712
       nfiles: 81
+  invalidate:
+    cmd: Rscript stages/0_invalidate.R
+    outs:
+    - path: staging/checksums.txt
+      md5: 5cc06d32fa75420849b207a648072994
+      size: 790
