@@ -4,8 +4,16 @@ stages:
     outs:
       - staging/checksums.txt
   download_sqlite:
-    cmd: Rscript stages/1_build.R
+    cmd: python stages/1_build.py
     deps:
       - staging/checksums.txt
+      - stages/1_build.py
     outs:
-      - brick/
+      - brick/chembl_34.db
+  build_parquet:
+    cmd: python stages/2_build_parquet.py
+    deps:
+      - brick/chembl_34.db
+      - stages/2_build_parquet.py
+    outs:
+      - brick/parquet

@@ -1,2 +1,4 @@
+*.jar
 cache
 /brick
+tmp
