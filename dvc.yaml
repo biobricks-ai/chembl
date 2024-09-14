@@ -9,11 +9,11 @@ stages:
       - staging/checksums.txt
       - stages/1_build.py
     outs:
-      - brick/chembl_34.db
+      - brick/chembl_34.sqlite
   build_parquet:
     cmd: python stages/2_build_parquet.py
     deps:
-      - brick/chembl_34.db
+      - brick/chembl_34.sqlite
       - stages/2_build_parquet.py
     outs:
       - brick/parquet

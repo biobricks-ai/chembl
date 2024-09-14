@@ -27,7 +27,7 @@ urllib.request.urlretrieve(sql[0], tgt)
 with tarfile.open(tgt, "r:gz") as tar:
     tar.extractall(path=tmpdir)
 
-sqlite_path = next(tmpdir.rglob("chembl_*.db"))
+sqlite_path = next(tmpdir.rglob("chembl_*.db")).with_suffix('.sqlite')
 
 # Save SQLite DB to brick directory
 shutil.copy(sqlite_path, brkdir / sqlite_path.name)
