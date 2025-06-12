@@ -1,16 +1,25 @@
-# chembl
-<a href="https://github.com/biobricks-ai/chembl/actions"><img src="https://github.com/biobricks-ai/chembl/actions/workflows/bricktools-check.yaml/badge.svg?branch=master"/></a>
+# 📦 BioBricks.ai / ChEMBL   <!-- built 2025-06-12 -->
 
-## Description
-> A manually curated database of bioactive molecules with drug-like properties
+_ChEMBL is a manually curated catalogue of bioactive molecules.  
+This brick bundles **release 34** in an unmodified SQLite dump so you can
+query the full schema locally (Parquet exports will be added later)._
 
-# Usage
-```{R}
-biobricks::install_brick("chembl")
-biobricks::brick_pull("chembl")
-biobricks::brick_load("chembl")
-```
+---
 
-# Documentation
+## ➤ Quick start
 
-https://chembl.gitbook.io/chembl-interface-documentation/downloads
+```python
+import biobricks as bb, pandas as pd, sqlite3
+
+chembl = bb.assets("chembl")                       # locate brick
+conn   = sqlite3.connect(chembl.chembl_34_sqlite)  # open DB
+
+df = pd.read_sql_query(
+    """
+    SELECT chembl_id, pref_name, molecule_type
+    FROM molecule_dictionary
+    LIMIT 5;
+    """,
+    conn,
+)
+print(df)
